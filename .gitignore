@@ -19,3 +19,9 @@
 
 # ignore tests
 **/test/**
+
+# ignore sublime files
+*.sublime-project
+*.sublime-workspace
+**/*.sublime-project
+**/*.sublime-workspace
