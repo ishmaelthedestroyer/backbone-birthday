@@ -1,0 +1,24 @@
+{
+  "name": "backbone-birthday",
+  "version": "0.0.0",
+  "homepage": "http://backbone-birthday.herokuapp.com",
+  "description": "Simple Backbone MV* app to showcase basic features.",
+  "main": "app.js",
+  "repository": "github.com/ishmaelthedestroyer/backbone-birthday",
+  "keywords": [
+    "node",
+    "backbone"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": ""
+    }
+  ],
+  "author": "ishmaelthedestroyer",
+  "dependencies": {
+    "express": "~3.3.4"
+  },
+  "devDependencies": {
+  }
+}
