@@ -43,6 +43,20 @@ var months = [
   'December'
 ];
 
+
+// loop through months array, add to Year collection
+/*
+for (var i = 0; i < months.length; i++) {
+  app.Year.add({
+    title: months[i], // month name
+    order: i + 1 // index
+  });
+};
+*/
+
+// It seems to be better practice to initialize a collection with it's elements,
+// as opposed to adding them one by one.  I turned the `months` array of strings into
+// a `queue` array of objects that'll be used during instantiation
 var queue = [];
 for (var i = 0; i < months.length; i++) {
   queue.push({
