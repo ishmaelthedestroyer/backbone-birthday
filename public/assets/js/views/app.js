@@ -6,8 +6,6 @@ app.AppView = Backbone.View.extend({
   // bind to body
   el: '#birthdayApp',
 
-  //sortIndex: 'order'
-
   // events
   // events: {},
 

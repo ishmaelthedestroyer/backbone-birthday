@@ -8,13 +8,7 @@ var YearCollection = Backbone.Collection.extend({
 
   // fire when instance first initialized
   initialize: function() {
-    // console.log('Instance of YearCollection created.')
-    /*
-    this.on('add', function() {
-      console.log('Sorted.', this.sort());
-    });
-    */
-
+    // listen for reOrder event to set key
     this.on('reOrder', this.reOrder)
   },
 

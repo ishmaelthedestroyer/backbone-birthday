@@ -17,8 +17,7 @@ var Workspace = Backbone.Router.extend({
 
     app.MonthOrder = param;
 
-    // trigger a collectionf ilter event, causing hiding / unhiding
-    // of Todo view items
+    // trigger reOrder event on route change
     window.app.Year.trigger('reOrder');
   }
 });
