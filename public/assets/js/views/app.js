@@ -24,12 +24,18 @@ app.AppView = Backbone.View.extend({
 
     // rerender on all changes
     //this.listenTo(app.Year, 'all', this.render)
-    this.listenTo(app.Year, 'add', this.sort);
+    // this.listenTo(app.Year, 'add', this.sort);
 
+    this.listenTo(app.Year, 'reOrder:finished', this.render);
+
+    this.render();
+
+    /*
     var alias = this;
     setTimeout(function() {
       alias.render();
     }, 2000);
+    */
 
   },
 
@@ -50,9 +56,13 @@ app.AppView = Backbone.View.extend({
     // clear child elements
     $('#month-list').html('');
 
+    /*
     app.Year.comparator = function(month) {
       return month.get('title');
     };
+    */
+
+    console.log('Rendering.', app.Year.length);
 
     if (app.Year.length) {
       var sorted = app.Year.sort();
@@ -63,18 +73,20 @@ app.AppView = Backbone.View.extend({
     }
   },
 
-  setSortIndex: function(index) {
+  /*
+  sort: function(index) {
+    console.log('Sort triggered.');
+
     // this.sortIndex = index;
     app.Year.comparator = function(month) {
-      return month.get(index);
+      return month.get( app.MonthOrder || 'order' );
     };
 
     this.render();
   },
+  */
 
   addOne: function(item) {
-    console.log('Item added.', item);
-
     // create view from cached template + new model
     var view = new app.MonthView({
       model: item

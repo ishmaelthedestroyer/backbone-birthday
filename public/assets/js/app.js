@@ -18,13 +18,28 @@ $(function() {
     'December'
   ];
 
+  var queue = [];
+  for (var i = 0; i < months.length; i++) {
+    queue.push({
+      order: i, // index
+      title: months[i] // month name
+    })
+  }
+
+  //app.Year.add(queue);
+
   // loop through months array, add to Year collection
+  /*
   for (var i = 0; i < months.length; i++) {
     app.Year.add({
       title: months[i], // month name
       order: i + 1 // index
     });
   };
+  */
 
-  console.log(app.Year.toJSON());
+  var birthdayMonth = (function() {
+
+  })();
+
 });
