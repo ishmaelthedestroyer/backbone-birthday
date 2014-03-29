@@ -71,6 +71,8 @@ app.AppView = Backbone.View.extend({
         this.addOne(sorted.models[i]);
       }
     }
+
+    app.Dispatcher.trigger('render');
   },
 
   /*

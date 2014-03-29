@@ -39,10 +39,34 @@ $(function() {
   */
 
   var birthdayMonth = (function() {
+    // extend module
     _.extend(this, Backbone.Events);
 
-    this.listenTo(app.Dispatcher, 'click', function(model) {
-      console.log('MONTH VIEW CLICKED.', model);
+    // special month holder
+    var selected = null;
+
+    // listen for dispatched click events
+    this.listenTo(app.Dispatcher, 'click', function(e, model) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // set selected month
+      selected = model.attributes.title;
+
+      $('.month-item.selected').removeClass('selected');
+      $(e.currentTarget).addClass('selected');
+    });
+
+    // listen for dispatched render events
+    this.listenTo(app.Dispatcher, 'render', function() {
+      if (selected) {
+        $('.month-item').each(function(i, element) {
+          var $element = $(element);
+          if ( $(element).html().indexOf(selected) > -1) {
+            $element.addClass('selected');
+          }
+        });
+      }
     });
 
 

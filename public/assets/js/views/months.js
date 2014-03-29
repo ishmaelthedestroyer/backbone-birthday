@@ -7,6 +7,9 @@ app.MonthView = Backbone.View.extend({
   // list tag
   tagName: 'li',
 
+  // class selector
+  className: 'month-item',
+
   // cache the template
   template: _.template( $('#item-template').html() ),
 
@@ -16,7 +19,7 @@ app.MonthView = Backbone.View.extend({
   },
 
   dispatchClick: function(e) {
-    app.Dispatcher.trigger('click', e);
+    app.Dispatcher.trigger('click', e, this.model);
   },
 
   // initialization function, called when instance first constructed
