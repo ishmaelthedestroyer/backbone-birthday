@@ -3,31 +3,6 @@ var app = app || {};
 $(function() {
   new app.AppView();
 
-  var months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ];
-
-  var queue = [];
-  for (var i = 0; i < months.length; i++) {
-    queue.push({
-      order: i, // index
-      title: months[i] // month name
-    })
-  }
-
-  //app.Year.add(queue);
-
   var birthdayMonth = (function() {
     // extend module
     _.extend(this, Backbone.Events);
