@@ -9,7 +9,7 @@ This application was created to showcase some of Backbone's core features includ
 * A year collection is instantiated with an array of Month models. <br />
 * A view is created with a template for each month as well as an app view that renders the collection. <br />
 * A router is created that sets an index parameter for ordering the months. <br />
-* An event dispatcher is created that allows the views to broadcast click events. <br />
+* An event dispatcher is created that allows the views to broadcast their models and click events. <br />
 * A module (birthday month) is created, extended with the Backbone Event listener, listens for  dispatched events, and sets the selected birthday month. <br />
 
 ## Vendor Libraries
