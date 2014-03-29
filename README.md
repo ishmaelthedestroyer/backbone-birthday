@@ -22,6 +22,6 @@ This application was created to showcase some of Backbone's core features includ
 http://www.it-ebooks.info/book/2330/
 
 ## How this could be improved
-* Concatenation - I separated the scripts for modularization. Requiring all these scripts if obviously bad for performance, and the concatenation process could be automated with Grunt. <br />
+* Concatenation - I separated the scripts for modularization. Requiring all these scripts sf obviously bad for performance, and the concatenation process could be automated with Grunt. <br />
 * Minification - Again, performance reasons. <br />
-* birthdayMonth - The birthdayMonth object exposes two functions that never get called while setting up and managing all the event listeners internally. This could be delegated to an init() function.
+* birthdayMonth - The birthdayMonth object exposes two functions that never get called while setting up and managing all the event listeners internally. The event listeners could be delegated to an `init()` function that calls the birthdayMonth `setMonth` function.
