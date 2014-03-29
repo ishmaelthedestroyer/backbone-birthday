@@ -11,7 +11,13 @@ app.MonthView = Backbone.View.extend({
   template: _.template( $('#item-template').html() ),
 
   // DOM events
-  events: {},
+  events: {
+    'click': 'dispatchClick'
+  },
+
+  dispatchClick: function(e) {
+    app.Dispatcher.trigger('click', e);
+  },
 
   // initialization function, called when instance first constructed
   initialize: function() {

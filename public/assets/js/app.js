@@ -39,6 +39,12 @@ $(function() {
   */
 
   var birthdayMonth = (function() {
+    _.extend(this, Backbone.Events);
+
+    this.listenTo(app.Dispatcher, 'click', function(model) {
+      console.log('MONTH VIEW CLICKED.', model);
+    });
+
 
   })();
 
