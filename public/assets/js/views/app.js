@@ -13,34 +13,19 @@ app.AppView = Backbone.View.extend({
 
   // initialization called when instance constructed
   initialize: function() {
-    console.log('App view instance initialized.');
-
-    // listen to add / reset events
+    // listen to add events
     this.listenTo(app.Year, 'add', this.addOne);
-    // this.listenTo(app.Year, 'reset', this.addAll);
 
-    // listen for order event
-    // this.listenTo(app.Year, 'order', this.order)
-
-    // rerender on all changes
-    //this.listenTo(app.Year, 'all', this.render)
-    // this.listenTo(app.Year, 'add', this.sort);
-
+    // when sort key reset, re-render
     this.listenTo(app.Year, 'reOrder:finished', this.render);
 
+    // render list on initialization
     this.render();
-
-    /*
-    var alias = this;
-    setTimeout(function() {
-      alias.render();
-    }, 2000);
-    */
-
   },
 
   // (re)rendering the app
   render: function() {
+
     // animate fade-out
     /*
     $('#month-list').children('li').each(function(i, element) {
@@ -56,37 +41,19 @@ app.AppView = Backbone.View.extend({
     // clear child elements
     $('#month-list').html('');
 
-    /*
-    app.Year.comparator = function(month) {
-      return month.get('title');
-    };
-    */
-
-    console.log('Rendering.', app.Year.length);
-
     if (app.Year.length) {
+      // fetch sorted list
       var sorted = app.Year.sort();
 
+      // loop through items and render
       for (var i = 0; i < sorted.models.length; i++) {
         this.addOne(sorted.models[i]);
       }
     }
 
+    // dispatch event
     app.Dispatcher.trigger('render');
   },
-
-  /*
-  sort: function(index) {
-    console.log('Sort triggered.');
-
-    // this.sortIndex = index;
-    app.Year.comparator = function(month) {
-      return month.get( app.MonthOrder || 'order' );
-    };
-
-    this.render();
-  },
-  */
 
   addOne: function(item) {
     // create view from cached template + new model

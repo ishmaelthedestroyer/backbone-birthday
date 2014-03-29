@@ -59,12 +59,19 @@ $(function() {
       e.preventDefault();
       e.stopPropagation();
 
+      if (model.attributes.title == selected) {
+        return false;
+      }
+
       // set selected month
       selected = model.attributes.title;
       store.set('birthdayMonth', selected);
 
       $('.month-item.selected').removeClass('selected');
       $(e.currentTarget).addClass('selected');
+
+      console.log('BirthdayMonth API: user set "' + selected +
+        '" as new birthday month.');
     });
 
     // listen for dispatched render events
@@ -78,6 +85,15 @@ $(function() {
         });
       }
     });
+
+    return {
+      getMonth: function() {
+        return selected;
+      },
+      setMonth: function(s) {
+        selected = s;
+      }
+    }
 
 
   })();

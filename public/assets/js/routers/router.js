@@ -8,8 +8,6 @@ var Workspace = Backbone.Router.extend({
   reOrder: function(param) {
     param = param || '';
 
-    console.log('reOrdering.', param);
-
     // set the current filter to be used
     if (param == 'alphabetical') {
       param = 'title';

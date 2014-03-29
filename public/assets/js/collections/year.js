@@ -20,8 +20,6 @@ var YearCollection = Backbone.Collection.extend({
 
 
   reOrder: function() {
-    console.log('Sort triggered.');
-
     // this.sortIndex = index;
     this.comparator = function(month) {
       return month.get( app.MonthOrder || 'order' );
