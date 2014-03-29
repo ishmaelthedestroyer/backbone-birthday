@@ -20,7 +20,3 @@ This application was created to showcase some of Backbone's core features includ
 ## Resources
 * This book by Addy Osmani, a prolific Javascript developer, was used for learning Backbone. <br />
 http://www.it-ebooks.info/book/2330/
-
-## How this could be improved
-
-
