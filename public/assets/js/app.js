@@ -43,7 +43,16 @@ $(function() {
     _.extend(this, Backbone.Events);
 
     // special month holder
-    var selected = null;
+    var selected = store.get('birthdayMonth') || null;
+
+    if (selected) {
+      $('.month-item').each(function(i, element) {
+        var $element = $(element);
+        if ( $(element).html().indexOf(selected) > -1 ) {
+          $element.addClass('selected');
+        }
+      });
+    }
 
     // listen for dispatched click events
     this.listenTo(app.Dispatcher, 'click', function(e, model) {
@@ -52,6 +61,7 @@ $(function() {
 
       // set selected month
       selected = model.attributes.title;
+      store.set('birthdayMonth', selected);
 
       $('.month-item.selected').removeClass('selected');
       $(e.currentTarget).addClass('selected');
@@ -62,7 +72,7 @@ $(function() {
       if (selected) {
         $('.month-item').each(function(i, element) {
           var $element = $(element);
-          if ( $(element).html().indexOf(selected) > -1) {
+          if ( $(element).html().indexOf(selected) > -1 ) {
             $element.addClass('selected');
           }
         });
